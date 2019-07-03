@@ -1,0 +1,15 @@
+#square {
+  width: 48px;
+  height: 48px;
+  border: 1px solid black;
+  display: inline-block;
+  padding: 0px;
+  margin: 0px;
+  margin-bottom: -4px;
+}
+
+#container {
+  width: 800px;
+  height: 800px;
+  border: 1px solid black;
+}
