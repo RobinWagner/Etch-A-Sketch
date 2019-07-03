@@ -1,5 +1,4 @@
 let dimensions = 16;
-
 let container = document.querySelector('#container');
 
 for (let squareRow = 0; squareRow < dimensions; squareRow++) {
@@ -9,3 +8,9 @@ for (let squareRow = 0; squareRow < dimensions; squareRow++) {
     container.appendChild(div);
   }
 }
+
+container.addEventListener('mouseover', (event) => {
+  if (event.target.id == 'square') {
+    event.target.setAttribute('class', 'hover');
+  }
+});
