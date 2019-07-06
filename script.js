@@ -7,14 +7,14 @@ let randomColorButton = document.querySelector('#randomColor');
 let colorSelected = false;
 
 function createGrid(dimensions) {
-  // remove existing grid
+  // Remove existing grid
   if (document.querySelector('#square')) {
     while (container.hasChildNodes()) {
       container.removeChild(container.firstChild);
     }
   }
 
-  // create new grid
+  // Create new grid
   for (let squareRow = 0; squareRow < dimensions; squareRow++) {
     for (let squareColumn = 0; squareColumn < dimensions; squareColumn++) {
       let div = document.createElement('div');
@@ -38,10 +38,23 @@ function randomColor() {
 
 container.addEventListener('mouseover', (event) => {
   if (event.target.id == 'square') {
-    if (colorSelected) {
-      event.target.style.backgroundColor = randomColor();
+    if (event.target.style.backgroundColor) {
+      if (colorSelected) {
+        // 10% more black
+      let stringValue = String(event.target.style.filter);
+      let brightnessValue = stringValue.substring(stringValue.indexOf('(')+1, stringValue.indexOf('%'));
+      console.log(brightnessValue);
+      event.target.style.filter = 'brightness('+(brightnessValue - 10)+'%)';
+      } else {
+        event.target.style.backgroundColor = 'black';
+      }  
     } else {
-      event.target.style.backgroundColor = 'black';
+      event.target.style.filter = 'brightness(100%)';
+      if (colorSelected) {
+        event.target.style.backgroundColor = randomColor();
+      } else {
+        event.target.style.backgroundColor = 'black';
+      }
     }
   }
 });
