@@ -1,3 +1,4 @@
+let gridPixelSize = 640;
 let dimensions = 16;
 let container = document.querySelector('#container');
 let clearButton = document.querySelector('#clear');
@@ -19,7 +20,7 @@ function createGrid(dimensions) {
     for (let squareColumn = 0; squareColumn < dimensions; squareColumn++) {
       let div = document.createElement('div');
       div.setAttribute('id', 'square');
-      let gridSize = 960 / dimensions;
+      let gridSize = gridPixelSize / dimensions;
       div.setAttribute('style', 'width: ' + gridSize + 'px; height: ' + gridSize + 'px;');
       container.appendChild(div);
     }
