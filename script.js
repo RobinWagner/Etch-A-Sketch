@@ -77,7 +77,7 @@ randomColorButton.addEventListener('click', () => {
 });
 
 function createNewGrid() {
-  dimensions = prompt('Enter value:');
+  dimensions = prompt('Enter dimensions for new grid:');
   createGrid(dimensions);
 }
 
